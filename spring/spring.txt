@@ -1,0 +1,5 @@
+BeanName	        Qualifiers	    Scope	        Dependency	    Creation	    Type	        Extends	    Interfaces
+helloBean		    merhaba1        singleton		                Constructor	    HelloBean
+helloBeanMethod	    merhaba2        singleton		                Method  	    HelloBean
+helloBeanMethod2    merhaba3        singleton		                Method  	    HelloBean
+application		                    singleton	    helloBean	    Constructor	    Applicaiton

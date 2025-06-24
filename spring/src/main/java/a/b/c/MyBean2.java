@@ -1,6 +1,9 @@
 package a.b.c;
 
-public class MyBean1 {
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
+
+public class MyBean2 {
 
     public void method(){
     }

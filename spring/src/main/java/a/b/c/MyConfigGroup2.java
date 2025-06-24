@@ -4,17 +4,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class MyConfigGroup1 {
+public class MyConfigGroup2 {
 
     @Bean
-    public MyBean1 myBean1(){
-        return new MyBean1();
+    public MyBean2 myBean2(){
+        return new MyBean2();
     }
-
-    @Bean
-    public MyBean3 myBean3(){
-        return new MyBean3();
-    }
-
 
 }
