@@ -29,7 +29,7 @@ public class OrderProcessRestController {
 
     @PostMapping("/place")
     @ResponseStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION)
-    public ResponseEntity<String> place(@RequestParam("name") String name) {
+    public ResponseEntity<String> place(@RequestParam("name") final String name) {
         tracingService.addName(name);
         return ResponseEntity.status(HttpStatus.NON_AUTHORITATIVE_INFORMATION)
                              .header("deneme",
