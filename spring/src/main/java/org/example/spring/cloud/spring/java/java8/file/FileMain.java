@@ -14,6 +14,8 @@ public class FileMain {
             System.out.println("Bura : " + pathLoc1.toAbsolutePath());
             Path pathLoc = Paths.get("customer.txt");
             List<String> stringsLoc = Files.readAllLines(pathLoc);
+            String stringLoc = "osman,yay,55";
+            String[] splitLoc = stringLoc.split(",");
 
 
             System.out.println(stringsLoc);

@@ -1,8 +1,15 @@
 package org.example.spring.cloud.spring.rest;
 
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.example.spring.cloud.spring.java.java8.lab1.Person;
+import org.example.spring.cloud.spring.java.services.OrderProcessService;
+import org.example.spring.cloud.spring.java.services.models.Order;
+import org.example.spring.cloud.spring.rest.mappers.IOrderMapper;
+import org.example.spring.cloud.spring.rest.models.OrderPlaceRequest;
 import org.example.spring.cloud.spring.rest.models.Response;
 import org.example.spring.cloud.spring.services.TracingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,27 +24,23 @@ import java.util.List;
 import java.util.Vector;
 
 @RestController
-@RequestMapping("/api/v1/order/process")
 // CQRS Command Query Resp. Seg.
 @RequiredArgsConstructor
-public class OrderProcessRestController {
-
+public class OrderProcessRestController implements IOrderProcessRestController{
+    private final OrderProcessService orderProcessService;
     // private List<String> strings = new Vector<>();
 
-    private final TracingService tracingService;
+    // private final TracingService tracingService;
 
 
-    @PostMapping("/place")
-    @ResponseStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION)
-    public ResponseEntity<String> place(@RequestParam("name") final String name) {
-        tracingService.addName(name);
+    public ResponseEntity<String> place(@Valid @RequestBody final OrderPlaceRequest orderParam) {
+        orderProcessService.processOrder(IOrderMapper.INSTANCE.toOrder(orderParam));
         return ResponseEntity.status(HttpStatus.NON_AUTHORITATIVE_INFORMATION)
                              .header("deneme",
                                      "deneme1")
                              .body("OK");
     }
 
-    @PostMapping("/place2")
     public String place2(@RequestParam("name") String name) {
         return "OK";
     }

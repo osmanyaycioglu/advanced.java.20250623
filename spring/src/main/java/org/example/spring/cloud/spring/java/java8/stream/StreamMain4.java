@@ -59,5 +59,21 @@ public class StreamMain4 {
                                                       .collect(Collectors.toMap(emp -> emp.getName(),
                                                                                 emp -> emp));
 
+        Integer a = null;
+        if (a != null && a < 10 && a > 0) {
+
+        }
+
+        boolean bLoc = stringsLoc.stream()
+                                 .map(s -> Employee.builder()
+                                                   .withName(s)
+                                                   .build())
+                                 .distinct()
+                                 .anyMatch(e -> e.getName() != null);
+
+        stringsLoc.stream()
+                  .map(s -> s.toCharArray())
+                  .forEach(is -> System.out.println(is));
+
     }
 }

@@ -3,6 +3,7 @@ package org.example.spring.cloud.spring;
 import a.b.c.MyBean1;
 import a.b.c.MyConfigGroup1;
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
@@ -35,6 +36,10 @@ public class Application {
     @PostConstruct
     public void abc() {
         // Init
+    }
+
+    @PreDestroy
+    public void destroy(){
     }
 
     @Autowired

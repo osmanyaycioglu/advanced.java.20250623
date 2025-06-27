@@ -1,0 +1,4 @@
+osman,yay,55
+ali,veli,22
+mehmet,ali
+ayşe,mete,33
